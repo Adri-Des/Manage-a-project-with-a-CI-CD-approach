@@ -51,12 +51,15 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Installer Angular CLI
+        run: npm install -g @angular/cli
+
       - name: Installation des dépendances
         run: npm install
         working-directory: front
 
       - name: Exécution des tests avec couverture
-        run: ng test --watch=false --browsers=ChromeHeadless --code-coverage
+        run: npx ng test --watch=false --browsers=ChromeHeadless --code-coverage
         working-directory: front
 
       - name: Upload du rapport de couverture Angular
