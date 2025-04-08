@@ -17,6 +17,12 @@ jobs:
       - name: Checkout du code
         uses: actions/checkout@v4
 
+      - name: Installation de Java & Maven
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Installation de Node.js
         uses: actions/setup-node@v4
         with:
@@ -29,12 +35,6 @@ jobs:
       - name: Exécution des tests Angular (avec couverture)
         run: npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
         working-directory: front
-
-      - name: Installation de Java & Maven
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
 
       - name: Compilation du back-end avec Maven
         run: mvn clean verify
