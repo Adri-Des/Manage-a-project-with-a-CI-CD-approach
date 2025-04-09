@@ -59,7 +59,7 @@ jobs:
         working-directory: front
 
       - name: Exécution des tests avec couverture
-        run: npx ng test --watch=false --browsers=ChromeHeadless --code-coverage
+        run: npm run test:ci --watch=false --code-coverage
         working-directory: front
 
       - name: Upload du rapport de couverture Angular
