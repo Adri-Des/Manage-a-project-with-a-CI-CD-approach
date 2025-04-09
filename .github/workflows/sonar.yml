@@ -1,4 +1,4 @@
-name: Analyse qualité avec SonarQube
+name: Analyse qualité avec SonarCloud
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 jobs:
   sonarqube:
     name: SonarCloud 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout du code
