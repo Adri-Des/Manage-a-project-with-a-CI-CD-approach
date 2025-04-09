@@ -35,7 +35,7 @@ jobs:
         working-directory: front
 
       - name: Tests Angular + couverture
-        run: npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
+        run: npx ng test --watch=false --browsers=ChromeHeadless --code-coverage
         working-directory: front
 
       - name: Build backend + coverage
