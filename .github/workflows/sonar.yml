@@ -41,6 +41,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Adri-Des_Manage-a-project-with-a-CI-CD-approach
+        working-directory: back
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
