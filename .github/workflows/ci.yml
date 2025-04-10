@@ -11,17 +11,20 @@ on:
 jobs:
   backend-tests:
     name: Tests et couverture - Backend
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout du code
         uses: actions/checkout@v4
-
-      - name: Configuration de JDK 17
+        with:
+          fetch-depth: 0
+          
+      - name: Configuration de JDK 11
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          java-version: '11'
+          distribution: 'adopt'
+          
 
       - name: Installation des dépendances Maven
         run: mvn clean install
@@ -59,7 +62,7 @@ jobs:
         working-directory: front
 
       - name: Exécution des tests avec couverture
-        run: npm run test:ci --watch=false --code-coverage
+        run:  npm run test -- --watch=false --code-coverage
         working-directory: front
 
       - name: Upload du rapport de couverture Angular
