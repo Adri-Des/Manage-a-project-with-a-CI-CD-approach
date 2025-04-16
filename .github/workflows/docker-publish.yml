@@ -24,11 +24,11 @@ jobs:
         run: docker build -t bobapp-back ./back
 
       - name: Push image back
-        run: docker push bobapp-back
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/bobapp-back
 
       # Build et push du front
       - name: Build image front
         run: docker build -t bobapp-front ./front
 
       - name: Push image front
-        run: docker push bobapp-front
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/bobapp-front
