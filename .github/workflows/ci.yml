@@ -95,8 +95,7 @@ jobs:
       - name: Analyse SonarCloud (back + front)
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          npx sonar-scanner
+        run: npx sonar-scanner
 
       # - name: SonarCloud Analysis for Front
       #   working-directory: front
