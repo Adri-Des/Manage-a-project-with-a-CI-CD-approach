@@ -41,14 +41,7 @@ jobs:
         run: mvn test jacoco:report
         working-directory: back
 
-      - name: Upload du rapport de couverture JaCoCo
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: jacoco-report
-          path: back/target/site
-          
-
+     
       - name: Installation de Node.js
         uses: actions/setup-node@v3
         with:
@@ -65,6 +58,18 @@ jobs:
         run:  npm run test -- --watch=false --code-coverage --browsers=ChromeHeadless
         working-directory: front
 
+      - name: Analyse SonarCloud (back + front)
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: npx sonar-scanner
+
+      - name: Upload du rapport de couverture JaCoCo
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: back/target/site
+
       - name: Upload du rapport de couverture Angular
         if: always()
         uses: actions/upload-artifact@v4
@@ -72,10 +77,7 @@ jobs:
           name: angular-coverage-report
           path: front/coverage/
 
-      - name: Analyse SonarCloud (back + front)
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: npx sonar-scanner
+      
 
 
  # - name: Set up JDK 17 for SonarQube
