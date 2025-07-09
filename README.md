@@ -20,7 +20,7 @@ Launch Front-end:
 
 ### Docker
 
-Check CI-CD.md
+> Check CI-CD.md
 
 ## Back-end
 
@@ -42,4 +42,4 @@ Launch the tests:
 
 ### Docker
 
-Check CI-CD.md
+> Check CI-CD.md
