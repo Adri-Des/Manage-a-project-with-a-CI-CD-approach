@@ -14,16 +14,3 @@ docker-publish.yml:
 To launch Docker images:
 Clone the project repository (git clone...), go into it and launch "docker compose up" in a terminal
 After that go to "http://localhost:4200/"
-
-### KPIs ###
-
-- Minimum coverage: 80% for the back-end and 80% for the front-end
-- Build time maximum: less than 5 minutes for the complete pipeline
-- Test frequency: each push on main
-
-### Metrics analysis ###
-- Back-end code coverage: 32%
-- Front-end code coverage: 76.92%
-- Sonar Security rating: A (0 issue & 2 security Hotspots)
-- Sonar Reliability rating: D (1 issue)
-- Sonar Maintainability rating: A (10 issues)
